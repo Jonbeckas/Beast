@@ -1,1 +1,1 @@
-Beast
+main.Beast
