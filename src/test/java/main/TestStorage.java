@@ -1,6 +1,6 @@
 package main;
 import com.google.gson.Gson;
-import main.StorageType;
+import net.tetraowl.beast.StorageType;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;

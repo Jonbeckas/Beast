@@ -1,6 +1,6 @@
-package presets;
+package net.tetraowl.beast.presets;
 
-import main.StorageType;
+import net.tetraowl.beast.StorageType;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;

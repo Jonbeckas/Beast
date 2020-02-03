@@ -1,4 +1,4 @@
-package main;
+package net.tetraowl.beast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,17 +11,16 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BeastInstance {
+public class Beast {
     StorageType st;
     private Gson gson = new Gson();
-    private String beastDirectory;
-    private String id;
+    private File confFile;
 
-    public BeastInstance(Class<StorageType> storageType, String beastDirectory,String id) {
+    public Beast(Class storageType, File confFile) {
         try {
-            st = storageType.getDeclaredConstructor().newInstance();
-            this.beastDirectory = beastDirectory;
-            this.id = id;
+            Class<StorageType> c = storageType;
+            st = c.getDeclaredConstructor().newInstance();
+            this.confFile = confFile;
         } catch (InstantiationException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
@@ -29,15 +28,8 @@ public class BeastInstance {
 
 
     private File getConfFile() {
-        String path;
-        if (beastDirectory.equals("")) {
-            path = this.id+".beast";
-        } else {
-            path = this.beastDirectory+"/"+this.id+".beast";
-        }
-        File file = new File(path);
-        file.getParentFile().mkdirs();
-        return file;
+        this.confFile.getParentFile().mkdirs();
+        return this.confFile;
     }
 
     private LinkedList<StoreObject> getStoreObjs() {

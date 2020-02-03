@@ -1,4 +1,4 @@
-package main;
+package net.tetraowl.beast;
 
 import org.jetbrains.annotations.Nullable;
 

@@ -1,4 +1,4 @@
-package main;
+package net.tetraowl.beast;
 
 public class StoreObject {
     private final String id;

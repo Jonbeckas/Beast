@@ -1,5 +1,6 @@
 package main;
 
+import net.tetraowl.beast.StorageType;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;

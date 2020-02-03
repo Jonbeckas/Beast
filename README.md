@@ -5,22 +5,21 @@ Beast is an easy Gson using Key/Value storage manager.
 
 ## Getting Started
 ```java
-     Beast beast = new Beast("Path_to_beast_confDir");
-     BeastInstance bi = BEAST.openInstanceAndGet(StoreToFile.class,"INDEX");
+     Beast b = new Beast(StoreToFile.class,File("path_to_configfile"));
 ```
 Replace StoreToFile.class with the StorageType.class you want
 #### Store a Value
 ```java
-    bi.set(object,"id");
+    b.set(object,"id");
 ```
 
 #### Get a Value
 ```java
-   value_object value = bi.get(value_object.class ,"id");
+   value_object value = b.get(value_object.class ,"id");
 ```
 #### Get a List
 ```java
-   ArrayList<Object> arrayList = bi.getList("id");
+   ArrayList<Object> arrayList = b.getList("id");
 ```
 
 ## Create custom Storage Type

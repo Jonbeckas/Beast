@@ -1,17 +1,18 @@
 package main;
 
-import presets.Caching;
-import presets.StoreToFile;
+import net.tetraowl.beast.Beast;
+import net.tetraowl.beast.StoreObject;
+import net.tetraowl.beast.presets.Caching;
+import net.tetraowl.beast.presets.StoreToFile;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class BeastTest {
     public static void main(String[] args) {
-        Beast b = new Beast("testing");
-        BeastInstance bi = b.openInstanceAndGet(StoreToFile.class,"lol");
-        b.openInstance(Caching.class,"toll");
-        BeastInstance bild = b.getBeastInstance("toll");
+        Beast bi = new Beast(StoreToFile.class,new File("testing/lol.beast"));
+        Beast bild =new Beast(Caching.class,new File("testing/toll.beast"));
         LinkedList<StoreObject> ll = new LinkedList<>();
         ll.add(new StoreObject("hmm","oko"));
         ll.add(new StoreObject("ok",1));
