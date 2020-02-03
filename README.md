@@ -1,51 +1,51 @@
-#Beast
+# Beast
 Beast is an easy Gson using Key/Value storage manager.
 
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
-##Getting Started
+## Getting Started
 ```java
      Beast beast = new Beast("Path_to_beast_confDir");
      BeastInstance bi = BEAST.openInstanceAndGet(StoreToFile.class,"INDEX");
 ```
 Replace StoreToFile.class with the StorageType.class you want
-####Store a Value
+#### Store a Value
 ```java
     bi.set(object,"id");
 ```
 
-####Get a Value
+#### Get a Value
 ```java
    value_object value = bi.get(value_object.class ,"id");
 ```
-####Get a List
+#### Get a List
 ```java
    ArrayList<Object> arrayList = bi.getList("id");
 ```
 
-##Create custom Storage Type
+## Create custom Storage Type
 just implement the StorageType interface
 
-##Install
+## Install
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
-###Gradle
-####Add JitPack Repository
+### Gradle
+#### Add JitPack Repository
 ``` 
 repositories {
     maven { url 'https://jitpack.io' }
 }
 ```
 
-####Add Dependency
+#### Add Dependency
 ```
 dependencies {
     implementation 'com.github.Jonbeckas:Beast:version'
 }
 ```
 
-###Maven
-####Add JitPack Repository 
+### Maven
+#### Add JitPack Repository 
 ```xml
 <repositories>
     <repository>
@@ -55,7 +55,7 @@ dependencies {
 </repositories>
 ```
 
-####Add Dependency
+#### Add Dependency
 ```xml
 <dependency>
     <groupId>com.github.Jonbeckas</groupId>
@@ -63,11 +63,11 @@ dependencies {
     <version>Version</version>
 </dependency>
 ```
-##Used Librarys
-###Gson
-####Project: 
+## Used Librarys
+### Gson
+#### Project: 
 https://github.com/google/gson
-####Licence:
+#### Licence:
 ```
 Copyright 2008 Google Inc.
 
