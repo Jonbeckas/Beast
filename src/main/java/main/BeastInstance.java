@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -88,9 +89,20 @@ public class BeastInstance {
         LinkedList<StoreObject> lso = getStoreObjs();
         for (StoreObject storeObject : lso) {
             if (storeObject.getId().equals(id)) {
-                return clazz.cast(storeObject.getO());
+                return clazz.cast(storeObject.getObject());
             }
         }
         return null;
+    }
+
+    public ArrayList<Object> getList (String id) {
+        LinkedList<StoreObject> lso = getStoreObjs();
+        for (StoreObject storeObject : lso) {
+            if (storeObject.getId().equals(id)) {
+                return ArrayList.class.cast(storeObject.getObject());
+            }
+        }
+        return null;
+
     }
 }

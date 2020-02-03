@@ -13,7 +13,7 @@ public class StoreObject {
         return id;
     }
 
-    public Object getO() {
+    public Object getObject() {
         return object;
     }
 }
