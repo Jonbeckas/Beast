@@ -24,7 +24,7 @@ public abstract class BeastInstance {
     }
 
 
-    public void initCaching() {
+    public void loadCache() {
         if (cacheType == CacheType.CACHE_ON_START) {
             for (StoreObject so: getStoreObjs()) {
                 cachemap.put(so.getId(), so.getObject());

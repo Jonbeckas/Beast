@@ -36,11 +36,17 @@ If storeId does not exist, Beast add it using the default BeastInstance.
 #### Move a Value
 You can move a Value from a BeastInstance to an other
 ```java
- b.move(id,storageId);
+ bi.move(id,storageId);
 ```
 
 ## Create custom BeastInstance
-Just extend the abstract BeastInstance class
+Just extend the abstract BeastInstance class and call 
+```java
+ super.loadCache();
+```
+at the end of your constructor;
+
+
 
 ## Create custom Serializer
 Just implement the Serializer interface 

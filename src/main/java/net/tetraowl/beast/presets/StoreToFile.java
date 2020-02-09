@@ -1,13 +1,9 @@
 package net.tetraowl.beast.presets;
 
-import com.google.gson.Gson;
 import net.tetraowl.beast.BeastInstance;
 import net.tetraowl.beast.CacheType;
-import net.tetraowl.beast.Serializer;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
-import java.util.HashMap;
 
 public class StoreToFile extends BeastInstance {
     File storage ;
@@ -16,7 +12,7 @@ public class StoreToFile extends BeastInstance {
         super(new GSONSerializer(), cacheType);
         this.storage = storeageFile;
         storeageFile.getParentFile().mkdirs();
-        super.initCaching();
+        super.loadCache();
     }
 
 
