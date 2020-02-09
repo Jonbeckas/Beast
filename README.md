@@ -1,5 +1,5 @@
 # Beast
-Beast is an easy Gson using Key/Value storage manager.
+Beast is an easy to use Key/Value storage manager with Gson serialization.
 
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
