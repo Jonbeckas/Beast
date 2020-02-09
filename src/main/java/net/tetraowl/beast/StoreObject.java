@@ -1,5 +1,7 @@
 package net.tetraowl.beast;
 
+import java.io.Serializable;
+
 public class StoreObject {
     private final String id;
     private final Object object;

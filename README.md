@@ -4,26 +4,41 @@ Beast is an easy Gson using Key/Value storage manager.
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
 ## Getting Started
+Open new Beast, with default BeastInstance
 ```java
-     Beast b = new Beast(StoreToFile.class,File("path_to_configfile"));
+     Beast b = new Beast(new StoreToFile( CacheType,File);
 ```
-Replace StoreToFile.class with the StorageType.class you want
+### CacheType
+NO_CACHE: No Caching
+
+CACHE_ON_START: Caches all store Data on start
+
+CACHE: Caches on set() or get()
+
+### Get BeastInstance
+```java
+     BeastInstance bi = b.get(storeId);
+```
+If storeId does not exist, Beast add it using the default BeastInstance.
 #### Store a Value
 ```java
-    b.set(object,"id");
+    bi.set(object,"id");
 ```
 
 #### Get a Value
 ```java
-   value_object value = b.get(value_object.class ,"id");
+   Object value = b.get("id");
 ```
 #### Get a List
 ```java
-   ArrayList<Object> arrayList = b.getList("id");
+   List<Object> arrayList = b.getList("id");
 ```
 
-## Create custom Storage Type
-just implement the StorageType interface
+## Create custom BeastInstance
+Just extend the abstract BeastInstance class
+
+## Create custom Serializer
+Just implement the Serializer interface 
 
 ## Install
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)

@@ -1,21 +1,30 @@
 package net.tetraowl.beast.presets;
 
 import com.google.gson.Gson;
-import net.tetraowl.beast.StorageType;
+import net.tetraowl.beast.BeastInstance;
+import net.tetraowl.beast.CacheType;
+import net.tetraowl.beast.Serializer;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.util.HashMap;
 
-public class StoreToFile implements StorageType {
-    private final Gson gson = new Gson();
-    HashMap<String, String> hm = new HashMap();
+public class StoreToFile extends BeastInstance {
+    File storage ;
+
+    public StoreToFile(CacheType cacheType, File storeageFile) {
+        super(new GSONSerializer(), cacheType);
+        this.storage = storeageFile;
+        storeageFile.getParentFile().mkdirs();
+        super.initCaching();
+    }
+
 
     @Override
-    public void write(@Nullable File storage, String string) throws FileNotFoundException {
+    protected void save(String s) {
         try {
             FileWriter sw = new FileWriter(storage);
-            sw.write(string);
+            sw.write(s);
             sw.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -23,7 +32,7 @@ public class StoreToFile implements StorageType {
     }
 
     @Override
-    public String read(@Nullable File storage) throws FileNotFoundException {
+    protected String load() {
         String allLines="";
         File saveFi = new File(storage.getAbsolutePath()+".new");
         try {
@@ -38,10 +47,5 @@ public class StoreToFile implements StorageType {
         }
         catch (IOException ignored) {}
         return allLines;
-    }
-
-    @Override
-    public boolean needsGivenStorage() {
-        return true;
     }
 }
