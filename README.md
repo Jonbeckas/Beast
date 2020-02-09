@@ -27,11 +27,16 @@ If storeId does not exist, Beast add it using the default BeastInstance.
 
 #### Get a Value
 ```java
-   Object value = b.get("id");
+   Object value = bi.get("id");
 ```
 #### Get a List
 ```java
-   List<Object> arrayList = b.getList("id");
+   List<Object> arrayList = bi.getList("id");
+```
+#### Move a Value
+You can move a Value from a BeastInstance to an other
+```java
+ b.move(id,storageId);
 ```
 
 ## Create custom BeastInstance
