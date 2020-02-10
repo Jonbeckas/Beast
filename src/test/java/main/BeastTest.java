@@ -1,7 +1,6 @@
 package main;
 
 import net.tetraowl.beast.Beast;
-import net.tetraowl.beast.BeastInstance;
 import net.tetraowl.beast.CacheType;
 import net.tetraowl.beast.StoreObject;
 import net.tetraowl.beast.presets.Caching;
@@ -17,18 +16,18 @@ public class BeastTest {
     public static void main(String[] args) {
         Beast beast = new Beast(new StoreToFile( CacheType.CACHE_ON_START,new File("testing/lol.beast")));
         try {
-            beast.addBeastInstance("caching",new Caching(CacheType.CACHE));
+            beast.addStorageType("caching",new Caching(CacheType.CACHE));
         } catch (Exception ignore) {};
         LinkedList<StoreObject> ll = new LinkedList<>();
         ll.add(new StoreObject("hmm","oko"));
         ll.add(new StoreObject("ok",1));
-        beast.get("KOOOL").set("LOLOLOLOLO","hallo");
-        beast.get("caching").set(ll,"hi");
-        List<Object> arrayList = beast.get("caching").getList("hi");
+        beast.get("KOOOL").set("hallo");
+        beast.create("lol","caching").set(ll);
+        List<Object> arrayList = beast.get("lol").getList();
         System.out.println((arrayList.get(0)+" und "+arrayList.get(1)));
-        System.out.println( beast.get("caching").getList("hi")+"    "+beast.get("KOOOL").get("hallo"));
+        System.out.println( beast.get("lol").getList()+"    "+beast.get("KOOOL").get());
         try {
-            beast.get("caching").move("hi","KOOOL");
+            beast.get("lol").move(Beast.DEFAULT_STORAGE_ID);
         } catch (Beast.IdAlreadyExistException e) {
             e.printStackTrace();
         }

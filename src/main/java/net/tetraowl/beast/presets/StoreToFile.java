@@ -1,11 +1,12 @@
 package net.tetraowl.beast.presets;
 
-import net.tetraowl.beast.BeastInstance;
 import net.tetraowl.beast.CacheType;
+import net.tetraowl.beast.StorageType;
+import net.tetraowl.beast.StoreObject;
 
 import java.io.*;
 
-public class StoreToFile extends BeastInstance {
+public class StoreToFile extends StorageType {
     File storage ;
 
     public StoreToFile(CacheType cacheType, File storeageFile) {

@@ -4,7 +4,7 @@ Beast is an easy to use Key/Value storage manager with Gson serialization.
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
 ## Getting Started
-Open new Beast, with default BeastInstance
+Open new Beast, with default StorageType
 ```java
      Beast b = new Beast(new StoreToFile( CacheType,File);
 ```
@@ -15,32 +15,47 @@ CACHE_ON_START: Caches all store Data on start
 
 CACHE: Caches on set() or get()
 
-### Get BeastInstance
+### Get a BeastItem
 ```java
-     BeastInstance bi = b.get(storeId);
+     BeastItem  bi = b.get(id);
 ```
-If storeId does not exist, Beast add it using the default BeastInstance.
+If storeId does not exist, Beast add it using the default StorageType.
 #### Store a Value
 ```java
-    bi.set(object,"id");
+    bi.set(object);
 ```
 
 #### Get a Value
 ```java
-   Object value = bi.get("id");
+   Object value = bi.get();
 ```
 #### Get a List
 ```java
-   List<Object> arrayList = bi.getList("id");
+   List<Object> arrayList = bi.getList();
 ```
 #### Move a Value
-You can move a Value from a BeastInstance to an other
+You can move a Value from a StorageType to an other
 ```java
- bi.move(id,storageId);
+ bi.move(storageId);
 ```
 
-## Create custom BeastInstance
-Just extend the abstract BeastInstance class and call 
+#### Remove a value
+```java
+ bi.remove();
+```
+
+## Register an other StorageType
+```java
+ b.addStorageType("storageId",StorageType);
+```
+
+## Register BeastItem in an other StorageType 
+```java
+ BeastItem bi = b.create(id,storageTypeid)
+```
+
+## Create custom StorageType
+Just extend the abstract StorageType class and call 
 ```java
  super.loadCache();
 ```

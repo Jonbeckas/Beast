@@ -1,14 +1,14 @@
 package net.tetraowl.beast.presets;
 
-import net.tetraowl.beast.BeastInstance;
 import net.tetraowl.beast.CacheType;
 import net.tetraowl.beast.Serializer;
+import net.tetraowl.beast.StorageType;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Caching extends BeastInstance {
+public class Caching extends StorageType {
     String string;
 
     public Caching( CacheType cacheType) {
@@ -17,7 +17,7 @@ public class Caching extends BeastInstance {
 
     @Override
     protected void save(String s) {
-        this.string =string;
+        this.string = s;
     }
 
     @Override
