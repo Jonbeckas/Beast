@@ -1,19 +1,17 @@
 # Beast
-Beast is an easy to use Key/Value storage manager with Gson serialization.
+Beast is an easy to use Key/Value storage manager using Google's Gson serializer.
 
 [![](https://jitpack.io/v/Jonbeckas/Beast.svg)](https://jitpack.io/#Jonbeckas/Beast)
 
 ## Getting Started
-Open new Beast, with default StorageType
+Create a new instance of Beast and give it a StoragType
 ```java
      Beast b = new Beast(new StoreToFile( CacheType,File);
 ```
-### CacheType
-NO_CACHE: No Caching
-
-CACHE_ON_START: Caches all store Data on start
-
-CACHE: Caches on set() or get()
+### CacheTypes
+NO_CACHE: Never caches
+CACHE_ON_START: Caches every stored Data on start
+CACHE: Caches reuested values only
 
 ### Get a BeastItem
 ```java
