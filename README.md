@@ -6,7 +6,7 @@ Beast is an easy to use Key/Value storage manager using Google's Gson serializer
 ## Getting Started
 Create a new instance of Beast and give it a StoragType
 ```java
-     Beast b = new Beast(new StoreToFile( CacheType,File);
+     Beast b = new Beast(new StoreToFile( CacheType,File));
 ```
 ### CacheTypes
 NO_CACHE: Never caches
